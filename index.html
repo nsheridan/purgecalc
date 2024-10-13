@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Toilet</title>
+    <style type="text/css">
+        html {
+            font-family: sans-serif;
+        }
+
+        #selection {
+            padding: 20px;
+        }
+
+        input[type=color] {
+            margin-right: 55px;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 60%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dedede;
+        }
+
+        label {
+            text-align: right;
+        }
+    </style>
+    <script src="purge.js"></script>
+</head>
+
+<body>
+    <div id="selection">
+        <label for="c1">#1</label>
+        <input type="color" id="c1" name="c1" value="#ffffff">
+        <label for="c2">#2</label>
+        <input type="color" id="c2" name="c2" value="#ffffff">
+        <label for="c3">#3</label>
+        <input type="color" id="c3" name="c3" value="#ffffff">
+        <label for="c4">#4</label>
+        <input type="color" id="c4" name="c4" value="#ffffff">
+        <label for="c5">#5</label>
+        <input type="color" id="c5" name="c5" value="#ffffff">
+    </div>
+
+    <hr />
+    <div>
+        <label for="multiplier">Multiplier</label>
+        <input type="range" id="multiplier" min="0.1" max="2.0" step="0.01" value="1.0" />
+        <output id="multiplier_val" for="multiplier">1.0x</output>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>#1</th>
+                <th>#2</th>
+                <th>#3</th>
+                <th>#4</th>
+                <th>#5</th>
+            </tr>
+            <tr>
+                <th>#1</th>
+                <td id="c1c1">-</td>
+                <td id="c1c2">0</td>
+                <td id="c1c3">0</td>
+                <td id="c1c4">0</td>
+                <td id="c1c5">0</td>
+            </tr>
+            <tr>
+                <th>#2</th>
+                <td id="c2c1">0</td>
+                <td id="c2c2">-</td>
+                <td id="c2c3">0</td>
+                <td id="c2c4">0</td>
+                <td id="c2c5">0</td>
+            </tr>
+            <tr>
+                <th>#3</th>
+                <td id="c3c1">0</td>
+                <td id="c3c2">0</td>
+                <td id="c3c3">-</td>
+                <td id="c3c4">0</td>
+                <td id="c3c5">0</td>
+            </tr>
+            <tr>
+                <th>#4</th>
+                <td id="c4c1">0</td>
+                <td id="c4c2">0</td>
+                <td id="c4c3">0</td>
+                <td id="c4c4">-</td>
+                <td id="c4c5">0</td>
+            </tr>
+            <tr>
+                <th>#5</th>
+                <td id="c5c1">0</td>
+                <td id="c5c2">0</td>
+                <td id="c5c3">0</td>
+                <td id="c5c4">0</td>
+                <td id="c5c5">-</td>
+            </tr>
+        </thead>
+    </table>
+
+</body>
+
+</html>
