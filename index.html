@@ -18,7 +18,8 @@
 
         table {
             table-layout: fixed;
-            width: 60%;
+            width: 720px;
+            box-sizing: border-box;
             border-collapse: collapse;
         }
 
@@ -26,14 +27,26 @@
         td {
             padding: 10px;
             text-align: left;
+            vertical-align: middle;
         }
 
         tr:nth-child(even) {
             background-color: #dedede;
         }
 
+        tr:nth-child(odd) {
+            background-color: #b9b9b9;
+        }
+
         label {
             text-align: right;
+        }
+
+        .colour-box {
+            width: 24px;
+            height: 24px;
+            background: #ffffff;
+            display: inline-block;
         }
     </style>
     <script src="purge.js"></script>
@@ -63,14 +76,14 @@
         <thead>
             <tr>
                 <th></th>
-                <th>#1</th>
-                <th>#2</th>
-                <th>#3</th>
-                <th>#4</th>
-                <th>#5</th>
+                <th>#1 <span id="to1" class="colour-box"></span></th>
+                <th>#2 <span id="to2" class="colour-box"></span></th>
+                <th>#3 <span id="to3" class="colour-box"></span></th>
+                <th>#4 <span id="to4" class="colour-box"></span></th>
+                <th>#5 <span id="to5" class="colour-box"></span></th>
             </tr>
             <tr>
-                <th>#1</th>
+                <th>#1 <span id="from1" class="colour-box"></span></th>
                 <td id="c1c1">-</td>
                 <td id="c1c2">0</td>
                 <td id="c1c3">0</td>
@@ -78,7 +91,7 @@
                 <td id="c1c5">0</td>
             </tr>
             <tr>
-                <th>#2</th>
+                <th>#2 <span id="from2" class="colour-box"></span></th>
                 <td id="c2c1">0</td>
                 <td id="c2c2">-</td>
                 <td id="c2c3">0</td>
@@ -86,7 +99,7 @@
                 <td id="c2c5">0</td>
             </tr>
             <tr>
-                <th>#3</th>
+                <th>#3 <span id="from3" class="colour-box"></span></th>
                 <td id="c3c1">0</td>
                 <td id="c3c2">0</td>
                 <td id="c3c3">-</td>
@@ -94,7 +107,7 @@
                 <td id="c3c5">0</td>
             </tr>
             <tr>
-                <th>#4</th>
+                <th>#4 <span id="from4" class="colour-box"></span></th>
                 <td id="c4c1">0</td>
                 <td id="c4c2">0</td>
                 <td id="c4c3">0</td>
@@ -102,7 +115,7 @@
                 <td id="c4c5">0</td>
             </tr>
             <tr>
-                <th>#5</th>
+                <th>#5 <span id="from5" class="colour-box"></span></th>
                 <td id="c5c1">0</td>
                 <td id="c5c2">0</td>
                 <td id="c5c3">0</td>

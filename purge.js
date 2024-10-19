@@ -134,6 +134,7 @@ function update(src, dst, val) {
 function recalculate() {
     let multiplier = document.querySelector("input#multiplier").value;
     const keys = Object.keys(pickers);
+    let count = 1;
     keys.forEach((src) => {
         let others = keys.filter(function(key) {
             return key !== src;
@@ -142,6 +143,11 @@ function recalculate() {
             purge = calc_purge_volume(pickers[src].value, pickers[dst].value, multiplier);
             update(src, dst, purge);
         });
+        // update colour boxes
+        let value = pickers[src].value;
+        document.getElementById("to" + count).style.backgroundColor = value;
+        document.getElementById("from" + count).style.backgroundColor = value;
+        count++;
     });
 }
 
