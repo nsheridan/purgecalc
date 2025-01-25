@@ -1,3 +1,8 @@
+/*
+Initial implementation extracted from https://github.com/bambulab/BambuStudio/blob/5b834000f684368e094e9d677a0d24dc298750a5/src/libslic3r/FlushVolCalc.cpp
+and modified to produce good starting values for Prusa MMU.
+*/
+
 const min_purge_vol = 65;
 const max_purge_vol = 800;
 const extra_purge_vol = 60;
@@ -106,15 +111,15 @@ function calc_purge_volume(src_hex, dst_hex, multiplier) {
     let dst_lum = get_luminance(dst_rgb);
     let lum_purge;
     if (dst_lum >= src_lum) {
-        lum_purge = Math.pow(dst_lum - src_lum, 0.7) * 560;
+        lum_purge = Math.pow(dst_lum - src_lum, 0.7) * 339;
     } else {
         const src_hsv_v = src_hsv[2];
         const dst_hsv_v = dst_hsv[2];
         const inter_hsv_v = 0.67 * dst_hsv_v + 0.33 * src_hsv_v;
-        lum_purge = (src_lum - dst_lum) * 80;
+        lum_purge = (src_lum - dst_lum) * 63;
         hs_dist = Math.min(inter_hsv_v, hs_dist);
     }
-    let hs_purge = 230 * hs_dist;
+    let hs_purge = 137 * hs_dist;
     let purge_volume = calc_triangle_3rd_edge(hs_purge, lum_purge, 120);
     purge_volume *= multiplier;
     purge_volume = Math.max(purge_volume, min_purge_vol);
@@ -151,8 +156,15 @@ function recalculate() {
     });
 }
 
+function initialColour(picker) {
+    val = picker.id.substring(1) - 1;
+    initials = {0: "#FF8000", 1: "#DB5182", 2: "#3EC0FF", 3: "#FF4F4F", 4: "#FBEB7D"};
+    return initials[val];
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll("input[type=color]").forEach((picker) => {
+        picker.value = initialColour(picker);
         picker.addEventListener("change", recalculate, false);
         pickers[picker.id] = picker;
     });
